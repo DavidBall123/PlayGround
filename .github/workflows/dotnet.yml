@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build ./Playground/PlayGround.sln --no-restore
+      run: dotnet build ./PlayGround/PlayGround/PlayGround.sln --no-restore
     - name: Test
-      run: dotnet test /Playground/PlayGround.sln --no-build --verbosity normal
+      run: dotnet test ./PlayGround/PlayGround/PlayGround.sln --no-build --verbosity normal
