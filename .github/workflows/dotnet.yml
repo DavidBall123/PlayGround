@@ -22,10 +22,8 @@ jobs:
         dotnet-version: 5.0.x
 
     - name: List folder
-      run: |  
-        ls \
-        cd . \
-        ls
+      run: ls
+        
 
     
     # - name: Restore dependencies
