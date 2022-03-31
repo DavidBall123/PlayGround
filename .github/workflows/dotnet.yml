@@ -22,7 +22,7 @@ jobs:
 
     - name: List folders
       run: |
-        echo ${ {env.working-directory }}
+        echo ${{ env.working-directory }}
         ls -R
       working-directory: ${{ env.working-directory }}
     
