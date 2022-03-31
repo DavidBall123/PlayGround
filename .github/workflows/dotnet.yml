@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: ..\..\Src\
+      # working-directory: ..\..\Src\
     steps:
     - uses: actions/checkout@v3
     
@@ -22,8 +22,8 @@ jobs:
 
     - name: List folders
       run: |
-        ls -R
-      working-directory: ${{env.working-directoy}}
+        ls 
+      # working-directory: ${{env.working-directoy}}
     
     # - name: Restore dependencies
     #   run: |
