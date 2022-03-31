@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: ./PlayGround/PlayGround
+      working-directory: ./PlayGround/
     steps:
     - uses: actions/checkout@v3
     
@@ -23,6 +23,7 @@ jobs:
     - name: List folders
       working-directory: ${{env.working-directoy}}
       run: ls
+       
 
     
     # - name: Restore dependencies
