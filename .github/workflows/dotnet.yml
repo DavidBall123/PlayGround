@@ -24,14 +24,10 @@ jobs:
       run: |
         ls -R
       working-directory: ${{env.working-directoy}}
-      
-      
-       
-
     
-    # - name: Restore dependencies
-    #   run: dotnet restore
-    #   working-directory: ${{env.working-directoy}}
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: ${{env.working-directoy}}
 
     # - name: Build
     #   run: dotnet build --no-restore
