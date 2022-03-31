@@ -30,15 +30,11 @@ jobs:
       run: |
         dotnet restore
       working-directory: ${{ env.working-directory }}
-    
 
-    # - name: Build
-    #   run: dotnet build --no-restore
-    #   working-directory: ${{env.working-directoy}}
+    - name: Build
+      run: dotnet build --no-restore
+      working-directory: ${{ env.working-directoy }}
             
-    # - name: Test
-    #   run: dotnet test  --no-build --verbosity normal
-    #   working-directory: ${{env.working-directoy}}
-      
-      
-      
+    - name: Test
+      run: dotnet test  --no-build --verbosity normal
+      working-directory: ${{ env.working-directoy }}
