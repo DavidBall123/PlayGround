@@ -20,18 +20,25 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 5.0.x
-    
-    - name: Restore dependencies
-      run: dotnet restore
-      working-directory: ${{env.working-directoy}}
 
-    - name: Build
-      run: dotnet build --no-restore
-      working-directory: ${{env.working-directoy}}
+    - name: List folder
+      run: |  
+        ls \
+        cd . \
+        ls
+
+    
+    # - name: Restore dependencies
+    #   run: dotnet restore
+    #   working-directory: ${{env.working-directoy}}
+
+    # - name: Build
+    #   run: dotnet build --no-restore
+    #   working-directory: ${{env.working-directoy}}
             
-    - name: Test
-      run: dotnet test  --no-build --verbosity normal
-      working-directory: ${{env.working-directoy}}
+    # - name: Test
+    #   run: dotnet test  --no-build --verbosity normal
+    #   working-directory: ${{env.working-directoy}}
       
       
       
