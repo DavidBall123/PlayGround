@@ -11,8 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: ./PlayGround/PlayGround
-
+      working-directory: ./PlayGround/
     steps:
     - uses: actions/checkout@v3
     
@@ -21,9 +20,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
-    - name: List folder
+    - name: List folders
+      working-directory: ${{env.working-directoy}}
       run: ls
-        
 
     
     # - name: Restore dependencies
