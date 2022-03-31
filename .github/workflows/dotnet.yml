@@ -10,16 +10,31 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      working-directory: ./Src
     steps:
     - uses: actions/checkout@v3
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
+
+    - name: List folders
+      run: |
+        echo ${{ env.working-directory }}
+        ls -R
+      working-directory: ${{ env.working-directory }}
+    
     - name: Restore dependencies
-      run: dotnet restore
+      run: |
+        dotnet restore
+      working-directory: ${{ env.working-directory }}
+
     - name: Build
-      run: dotnet build ./Playground/PlayGround.sln --no-restore
+      run: dotnet build --no-restore
+      working-directory: ${{ env.working-directory }}
+            
     - name: Test
-      run: dotnet test /Playground/PlayGround.sln --no-build --verbosity normal
+      run: dotnet test  --no-build --verbosity normal
+      working-directory: ${{ env.working-directory }}
