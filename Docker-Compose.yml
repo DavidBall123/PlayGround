@@ -1,0 +1,12 @@
+services:
+  client:
+  image:
+  ports:
+    -"80:80"
+  networks:
+    -app-net
+
+newtorks: 
+  app-net:
+    external:
+      nat:
