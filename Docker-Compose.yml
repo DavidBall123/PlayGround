@@ -1,12 +1,11 @@
 services:
-  client:
-  image:
-  ports:
-    -"80:80"
-  networks:
-    -app-net
+  healthApi: 
+    image: playgroundapi:latest
+    ports:
+      - "8082:80"
+  clientapp: 
+    image: playgroundclient:latest
+    ports:
+      - "8081:80"
 
-newtorks: 
-  app-net:
-    external:
-      nat:
+  
