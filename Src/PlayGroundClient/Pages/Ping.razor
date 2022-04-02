@@ -1,22 +1,27 @@
 ﻿@page "/ping"
-@inject HttpClient Http
+@inject IHttpClientFactory _clientFactory
 
 <PageTitle>Ping Server</PageTitle>
 
 <h1>Ping Server</h1>
 
-<p role="status">Result FRom Server: @_pingResult</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<p>
+    <label for="pingFormTextarea1">Ping Server</label>
+    <textarea class="form-control" id="pingFormTextarea1" rows="1"></textarea>
+    <br/>
+    <button class="btn btn-primary" @onclick="PingServer">Submit</button>
+<br/>
+</p>
+<p role="status">Result From Server: @_pingResult</p>
 
 @code {
 
     private string? _pingResult;
 
-    protected async Task IncrementCount()
+    protected async Task PingServer()
     {
-        //pingResult = await Http.GetFromJsonAsync<string>("sample-data/weather.json");
-        _pingResult = "result";
+        var client = _clientFactory.CreateClient("HealthApi");
+        _pingResult = await client.GetFromJsonAsync<string>("/api/Ping?message=1123");
     }
 
 }
