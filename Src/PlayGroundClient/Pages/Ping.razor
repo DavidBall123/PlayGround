@@ -1,0 +1,27 @@
+﻿@page "/ping"
+@inject IHttpClientFactory _clientFactory
+
+<PageTitle>Ping Server</PageTitle>
+
+<h1>Ping Server</h1>
+
+<p>
+    <label for="pingFormTextarea1">Ping Server</label>
+    <textarea class="form-control" id="pingFormTextarea1" rows="1"></textarea>
+    <br/>
+    <button class="btn btn-primary" @onclick="PingServer">Submit</button>
+<br/>
+</p>
+<p role="status">Result From Server: @_pingResult</p>
+
+@code {
+
+    private string? _pingResult;
+
+    protected async Task PingServer()
+    {
+        var client = _clientFactory.CreateClient("HealthApi");
+        _pingResult = await client.GetStringAsync("/api/Ping?message=123");
+    }
+
+}

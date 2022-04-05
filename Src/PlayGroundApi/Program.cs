@@ -19,7 +19,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseCors(builder => builder.WithOrigins("https://localhost:7291")
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.MapControllers();
-
 app.Run();
