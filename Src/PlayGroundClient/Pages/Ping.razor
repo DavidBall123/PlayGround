@@ -21,7 +21,7 @@
     protected async Task PingServer()
     {
         var client = _clientFactory.CreateClient("HealthApi");
-        _pingResult = await client.GetFromJsonAsync<string>("/api/Ping?message=1123");
+        _pingResult = await client.GetStringAsync("/api/Ping?message=123");
     }
 
 }
