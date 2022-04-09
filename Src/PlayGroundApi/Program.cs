@@ -23,5 +23,11 @@ app.UseCors(builder => builder.WithOrigins("https://localhost:7291")
     .AllowAnyMethod()
     .AllowAnyHeader());
 
+app.UseCors(builder => builder.WithOrigins("https://clientapp:443")
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
+
+
 app.MapControllers();
 app.Run();

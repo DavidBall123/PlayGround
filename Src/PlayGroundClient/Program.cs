@@ -10,6 +10,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddHttpClient("HealthApi", client =>
-    client.BaseAddress = new Uri("https://localhost:49153"));
+    client.BaseAddress = new Uri("https://healthApi:443"));
 
 await builder.Build().RunAsync();

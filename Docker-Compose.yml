@@ -2,10 +2,10 @@ services:
   healthApi: 
     image: playgroundapi:latest
     ports:
-      - "8082:80"
+      - "44301:443"
   clientapp: 
     image: playgroundclient:latest
     ports:
-      - "8081:80"
+      - "44302:443"
 
   
